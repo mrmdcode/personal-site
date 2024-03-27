@@ -1,0 +1,23 @@
+<body>
+    <table>
+        <thead>
+            <th>name</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>subject</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$name}}</td>
+                <td>{{$email}}</td>
+                <td>{{$phone}}</td>
+                <td>{{$subject}}</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    {{$tmessage}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
