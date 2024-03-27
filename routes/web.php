@@ -25,3 +25,7 @@ Route::post("contact",function (\Illuminate\Http\Request $req){
         return redirect()->route("home");
 
 })->name("contact");
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
