@@ -29,3 +29,6 @@ Route::post("contact",function (\Illuminate\Http\Request $req){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix("dashboard")->group(function (){
+    Route::resource("Setting",\App\Http\Controllers\Back\DashboardSettingController::class);
+})->middleware("auth");
