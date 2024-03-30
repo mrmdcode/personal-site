@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Front.Index.index');
+    $setting = \App\Models\Setting::find(1);
+    return view('Front.Index.index',compact("setting"));
 })->name("home");
 Route::post("contact",function (\Illuminate\Http\Request $req){
     \Illuminate\Support\Facades\Mail::

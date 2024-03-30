@@ -6,17 +6,25 @@
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="mrmdcode,mahdikazemizade , mahdi kazemi zade " />
-    <meta name="author" content="Mahdi Kazemi Zade " />
+    <meta name="keywords" content="{{$setting->metaKeyword}}" />
+    <meta name="description" content="{{$setting->metaDescription}}" />
+    <meta name="author" content="{{$setting->metaAuthor}}" />
+    <title>{{$setting->title}}</title>
+    <meta name="robots" content="{{$setting->metaRobots}}">
+    <meta property="og:title" content="{{$setting->metaVoTitle}}"/>
+    <meta property="og:description" content="{{$setting->metaVoDescription}}"/>
+    <meta property="og:type" content="{{$setting->metaVoType}}"/>
+    <meta property="og:url" content="{{$setting->metaVoUrl}}"/>
+    <meta property="og:image" content="@php $pathArr = explode("/",$setting->metaVoImage);$newPath = array_pop($pathArr) ;echo asset("storage/Images/".$newPath); @endphp"/>
+
+    <link rel="shortcut icon" href="@php $pathArr = explode("/",$setting->icon);$newPath = array_pop($pathArr) ;echo asset("storage/Images/".$newPath); @endphp" type="image/x-icon">
+
+
     <link
         href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
         rel="stylesheet"
     />
-
-    <title>Mahdi Kazemi Zade</title>
-
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="assets/css/fontawesome.css" />
     <link rel="stylesheet" href="assets/css/templatemo-style.css" />
     <link rel="stylesheet" href="assets/css/owl.css" />

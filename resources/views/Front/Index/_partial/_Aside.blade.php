@@ -4,11 +4,11 @@
         <i class="fa fa-times" id="menu-close"></i>
         <div class="container">
             <div class="image">
-                <a href="#"><img src="assets/images/my-pic.jpg" alt="" /></a>
+                <a href="#"><img src="@php $pathArr = explode("/",$setting->myPic);$newPath = array_pop($pathArr) ;echo asset("storage/Images/".$newPath); @endphp" alt="{{$setting->myName}} - {{$setting->title}}" /></a>
             </div>
             <div class="author-content">
-                <h4>Mahdi Kazemi Zade</h4>
-                <span>Senior Backend Developer</span>
+                <h4>{{$setting->myName}}</h4>
+                <span>{{ $setting->myPosition}}</span>
             </div>
             <nav class="main-nav" role="navigation">
                 <ul class="main-menu">
@@ -21,7 +21,7 @@
             <div class="social-network">
                 <ul class="soial-icons">
                     <li>
-                        <a href="mailto :dr.mahdikazemizade84@gmail.com"><i class="fa fa-mail-forward"></i></a>
+                        <a href="mailto:dr.mahdikazemizade84@gmail.com"><i class="fa fa-mail-forward"></i></a>
                     </li>
                     <li>
                         <a href="https://instagram.com/mahdikazemi910"><i class="fa fa-instagram"></i></a>

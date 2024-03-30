@@ -74,34 +74,41 @@ class DashboardSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $fileMetaVoImage = $request->file("metaVoImage");
-        $pathMetaVoImage = $fileMetaVoImage->store("public/Images");
-//        dd($pathMetaVoImage);
-        $fileMyPic = $request->file("myPic");
-        $pathMyPic = $fileMyPic->store("public/Images");
-        $fileIcon = $request->file("icon");
-        $pathIcon = $fileIcon->store("public/Images");
 
 
+        $sett = Setting::where("id",1)->first();
+        $sett->title != $request->title ?  $sett->title = $request->title:null;
+        $sett->myName != $request->myName ? $sett->myName = $request->myName:null;
+        $sett->myPosition != $request->myPosition ? $sett->myPosition = $request->myPosition:null;
+        $sett->metaKeyword != $request->metaKeyword ? $sett->metaKeyword = $request->metaKeyword:null;
+        $sett->metaDescription != $request->metaDescription ? $sett->metaDescription = $request->metaDescription:null;
+        $sett->metaAuthor != $request->metaAuthor ? $sett->metaAuthor = $request->metaAuthor:null;
+        $sett->metaCopyright != $request->metaCopyright ? $sett->metaCopyright = $request->metaCopyright:null;
+        $sett->metaRobots != $request->metaRobots ? $sett->metaRobots = $request->metaRobots:null;
+        $sett->metaLang != $request->metaLang ? $sett->metaLang = $request->metaLang:null;
+        $sett->metaVoTitle != $request->metaVoTitle ? $sett->metaVoTitle = $request->metaVoTitle:null;
+        $sett->metaVoDescription != $request->metaVoDescription ? $sett->metaVoDescription = $request->metaVoDescription:null;
+        $sett->metaVoType != $request->metaVoType ? $sett->metaVoType = $request->metaVoType:null;
+        $sett->metaVoUrl != $request->metaVoUrl ? $sett->metaVoUrl = $request->metaVoUrl:null;
 
-        Setting::where("id",$id)->update([
-          "title" => $request->title ,
-          "myName" => $request->myName ,
-          "myPosition" => $request->myPosition ,
-          "metaKeyword" => $request->metaKeyword ,
-          "metaDescription" => $request->metaDescription ,
-          "metaAuthor" => $request->metaAuthor ,
-          "metaCopyright" => $request->metaCopyright ,
-          "metaRobots" => $request->metaRobots ,
-          "metaLang" => $request->metaLang ,
-          "metaVoTitle" => $request->metaVoTitle ,
-          "metaVoDescription" => $request->metaVoDescription ,
-          "metaVoType" => $request->metaVoType ,
-          "metaVoUrl" => $request->metaVoUrl ,
-          "metaVoImage" => $pathMetaVoImage,
-          "myPic" => $pathMyPic,
-          "icon" => $pathIcon,
-        ]);
+        if ($request->file("metaVoImage")){
+            $fileMetaVoImage = $request->file("metaVoImage");
+            $pathMetaVoImage = $fileMetaVoImage->store("public/Images");
+            $sett->metaVoImage = $pathMetaVoImage;
+        }
+        if ($request->file("myPic")){
+            $fileMyPic = $request->file("myPic");
+            $pathMyPic = $fileMyPic->store("public/Images");
+            $sett->myPic = $pathMyPic;
+        }
+        if ($request->file("icon")){
+            $fileIcon = $request->file("icon");
+            $pathIcon = $fileIcon->store("public/Images");
+            $sett->icon = $pathIcon;
+        }
+
+        $sett->update();
+
         session()->flash("success" , "update is successfully");
         return redirect()->route("Setting.index");
     }
