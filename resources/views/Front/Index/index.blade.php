@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{$setting->metaLang}}">
 <head>
     <meta charset="utf-8" />
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="lang" content="{{$setting->metaLang}}" />
+    <meta name="Copyright" content="{{$setting->metaCopyright}}" />
     <meta name="keywords" content="{{$setting->metaKeyword}}" />
     <meta name="description" content="{{$setting->metaDescription}}" />
     <meta name="author" content="{{$setting->metaAuthor}}" />
