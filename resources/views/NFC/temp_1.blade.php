@@ -6,6 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/app.css">
+    <meta property="og:title" content="{{$nfc->Name}}" />
+    <meta property="og:description" content="ﮎﺍﺮﺗ ﻩﻮﺸﻤﺗﺩ ﻭﺰﯿﺗ mrmdcode" />
+    <meta property="og:image" content="@php $pathArr = explode("/",$nfc->Image);$newPath = array_pop($pathArr) ;echo asset("storage/nfc/Images/".$newPath); @endphp" />
     <title>{{$nfc->Name}} - NFC کارت</title>
 </head>
 <body dir="ltr">
