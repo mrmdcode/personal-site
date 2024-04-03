@@ -40,4 +40,5 @@ class LandingPageController extends Controller
         return view("dashboard.LandingPage.Posts");
 
     }
+
 }

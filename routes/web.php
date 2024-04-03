@@ -13,11 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::group(['domain' => '{data}.{services}.'.env("APP_URL")], function () {
-//    Route::get('/', function ($data,$service) {
-//        return [$data,$service];
-//    });
-//});
+Route::group(['domain' => 'nfc.mrmdcode.ir'], function () {
+    Route::get('/id={id}', function ($id) {
+        $nfc = \App\Models\Panel_nfc::where("key",$id)->first();
+        if ($nfc){
+            return view("NFC.temp_1",compact("nfc"));
+        }
+        return abort(404);
+    });
+});
+Route::group(['domain' => 'res.mrmdcode.ir'], function () {
+    Route::get('/', function () {
+        return "res";
+    });
+});
 
 Route::get('/', function () {
     $setting = \App\Models\Setting::find(1);
@@ -36,6 +45,11 @@ Route::prefix("dashboard")->group(function (){
     Route::post("CreateWorks",[\App\Http\Controllers\Back\LandingPageController::class,'StoreWork'])->name("Work.store");
     Route::get("DeleteWork/{id}",[\App\Http\Controllers\Back\LandingPageController::class,'DestroyWork'])->name("Work.destroy");
     Route::get("Posts",[\App\Http\Controllers\Back\LandingPageController::class,'Posts'])->name("Posts.Index");
+    Route::get("nfc",[\App\Http\Controllers\Back\PanelNFCController::class,'Panel_nfc'])->name("Panel_nfc.Index");
+    Route::post("nfc/store",[\App\Http\Controllers\Back\PanelNFCController::class,'store'])->name("Panel_nfc.store");
+    Route::get("nfc/edit/{id}",[\App\Http\Controllers\Back\PanelNFCController::class,'edit'])->name("Panel_nfc.edit");
+    Route::put("nfc/update/{id}",[\App\Http\Controllers\Back\PanelNFCController::class,'update'])->name("Panel_nfc.update");
+    Route::get("nfc/{id}/delete",[\App\Http\Controllers\Back\PanelNFCController::class,'delete'])->name("Panel_nfc.delete");
 })->middleware("auth");
 
 

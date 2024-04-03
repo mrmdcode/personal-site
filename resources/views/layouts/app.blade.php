@@ -47,7 +47,7 @@
                             <a class="nav-link" href="{{ route("Works.Index") }}" >Landing Page Control</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" >NFC Product</a>
+                            <a class="nav-link" href="{{route("Panel_nfc.Index")}}" >NFC Product</a>
                         </li>
 
 

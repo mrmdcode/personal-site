@@ -16,16 +16,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="right-text">
-                        <h4>Reflux HTML CSS Template</h4>
+                        <h4>Social engineering technique</h4>
                         <p>
-                            Donec tristique feugiat lacus, at sollicitudin nunc euismod
-                            sed. Mauris viverra, erat non sagittis gravida, elit dui
-                            mollis ante, sit amet eleifend purus ligula eget eros. Sed
-                            tincidunt quam vitae neque pharetra dignissim eget ut
-                            libero.
+                            Dealing with spreading superstitions and worshiping various
+                            lies by profit-seeking people who take advantage of a series
+                            of people's ignorance and yet many people fall into their trap.
                         </p>
                         <div class="white-button">
-                            <a href="#">Read More</a>
+                            <a target="_blank" href="https://linkedin.com/in/mrmdcode">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -35,16 +33,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="left-text">
-                        <h4>Sed sagittis rhoncus velit</h4>
+                        <h4>Laravel Websocket beyoudcod</h4>
                         <p>
-                            Pellentesque habitant morbi tristique senectus et netus et
-                            malesuada fames ac turpis egestas. Vestibulum fermentum
-                            eleifend nibh, vitae sodales elit finibus pretium.
-                            Suspendisse potenti. Ut sollicitudin risus a sollicitudin
-                            semper.
+                            The main reason for writing this article is because the first time I wanted to install it, I ran into many problems, bugs and errors, and this made me come and pay attention to all the details.
                         </p>
                         <div class="white-button">
-                            <a href="#">Read More</a>
+                            <a target="_blank" href="https://linkedin.com/in/mrmdcode">Read More</a>
                         </div>
                     </div>
                 </div>
