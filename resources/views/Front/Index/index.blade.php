@@ -56,7 +56,19 @@
 <script src="assets/js/owl-carousel.js"></script>
 <script src="assets/js/lightbox.js"></script>
 <script src="assets/js/custom.js"></script>
+<script src="js/sweetalert2.js"></script>
 <script>
+
+@if(session("status") == "success")
+
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Send Your Request is Successfully",
+        showConfirmButton: false,
+        timer: 1500
+    });
+@endif
     //according to loftblog tut
     $(".main-menu li:first").addClass("active");
 

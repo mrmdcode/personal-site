@@ -35,7 +35,7 @@
                     <ul class="navbar-nav me-auto">
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Request</a>
+                            <a class="nav-link" href="{{route("Request.Index")}}">Request</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" >Factor</a>
@@ -44,7 +44,7 @@
                             <a class="nav-link" href="#" >File manager</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" >Landing Page Control</a>
+                            <a class="nav-link" href="{{ route("Works.Index") }}" >Landing Page Control</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" >NFC Product</a>
