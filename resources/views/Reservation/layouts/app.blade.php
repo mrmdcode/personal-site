@@ -35,27 +35,13 @@
                     <ul class="navbar-nav me-auto">
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("Request.Index")}}">Request</a>
+                            <a class="nav-link" href="{{route("u2-dashboard")}}">dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" >Factor</a>
+                            <a class="nav-link" href="{{route("u2-landingPageData")}}">Layout site</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" >File manager</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route("Works.Index") }}" >Landing Page Control</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown_2" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Services
-                            </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Reservation</a>
-                                <a class="dropdown-item" href="{{route("Panel_nfc.Index")}}" >NFC Product</a>
-                            </div>
-                        </li>
+
 
 
                     @endauth
@@ -79,7 +65,6 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{route("Setting.index")}}">Setting</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

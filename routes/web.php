@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['domain' => 'nfc.mrmdcode.ir'], function () {
+Route::group(['domain' => 'nfc.'.env("APP_URL")], function () {
     Route::get('/id={id}', function ($id) {
         $nfc = \App\Models\Panel_nfc::where("key",$id)->first();
         if ($nfc){
@@ -22,9 +22,14 @@ Route::group(['domain' => 'nfc.mrmdcode.ir'], function () {
         return abort(404);
     });
 });
-Route::group(['domain' => 'res.mrmdcode.ir'], function () {
-    Route::get('/', function () {
-        return "res";
+Route::group(['domain' => 'res.'.env("APP_URL")], function () {
+    Route::get('/',[\App\Http\Controllers\ViewU2DashboardController::class,'LandingPage']);
+    Route::prefix("dashboard")->middleware("auth")->group(function (){
+        Route::get('/',[\App\Http\Controllers\ViewU2DashboardController::class,'dashboardIndex'])->name("u2-dashboard");
+        Route::get('setting',[\App\Http\Controllers\ViewU2DashboardController::class,'landingPageData'])->name("u2-landingPageData");
+    });
+    Route::get('cafe',function (){
+        return view("Reservation.Front.Themes.Theme_1");
     });
 });
 
@@ -33,12 +38,16 @@ Route::get('/', function () {
     $Works = \App\Models\Works::all();
     return view('Front.Index.index',compact("setting","Works"));
 })->name("lp");
-Route::post("contact",[\App\Http\Controllers\Back\CURequestController::class,'requestStore'])->name("contact");
+//Route::get("/",function (){
+//    return view("Reservation.Front.Themes.Theme_1");
+//});
+Route::post("contact",[\App\Http\Controllers\Back\CURequestController::class,'requestStore'])->name("contact")->middleware("throttle");
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::prefix("dashboard")->group(function (){
+Route::prefix("dashboard")->middleware(["auth",'CheckAdmin'])->group(function (){
+    Route::get("/",[\App\Http\Controllers\Back\DashboardSettingController::class,'dashboard'])->name("n-dashboard");
     Route::resource("Setting",\App\Http\Controllers\Back\DashboardSettingController::class);
     Route::get("Request",[\App\Http\Controllers\Back\CURequestController::class,'viewRequests'])->name("Request.Index");
     Route::get("Works",[\App\Http\Controllers\Back\LandingPageController::class,'Works'])->name("Works.Index");
@@ -50,7 +59,7 @@ Route::prefix("dashboard")->group(function (){
     Route::get("nfc/edit/{id}",[\App\Http\Controllers\Back\PanelNFCController::class,'edit'])->name("Panel_nfc.edit");
     Route::put("nfc/update/{id}",[\App\Http\Controllers\Back\PanelNFCController::class,'update'])->name("Panel_nfc.update");
     Route::get("nfc/{id}/delete",[\App\Http\Controllers\Back\PanelNFCController::class,'delete'])->name("Panel_nfc.delete");
-})->middleware("auth");
+});
 
 
 

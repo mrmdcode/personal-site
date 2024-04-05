@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('c_u_requests', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("email")->unique();
+            $table->string("email");
             $table->string("subject");
-            $table->string("phone")->unique();
+            $table->string("phone");
             $table->text("message");
             $table->timestamps();
         });

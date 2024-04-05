@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class DashboardSettingController extends Controller
 {
+
+
+    public function dashboard()
+    {
+        return view('home');
+    }
     /**
      * Display a listing of the resource.
      *

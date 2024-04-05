@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UCRequestRequest;
 use App\Models\CURequest;
 use Illuminate\Http\Request;
 
 class CURequestController extends Controller
 {
-    public function requestStore(Request $request)
+    public function requestStore(UCRequestRequest $request)
     {
         CURequest::create([
             "name" => $request->name,
@@ -19,11 +20,11 @@ class CURequestController extends Controller
         ]);
 
 
-//        \Illuminate\Support\Facades\Mail::
-//        to("dr.mahdikazemizade84@gmail.com")
-//            ->send(new \App\Mail\RequestMail(
-//                $request->all(["name" ,"email" ,"subject" ,"phone" ,"message"])
-//        ));
+        \Illuminate\Support\Facades\Mail::
+        to("dr.mahdikazemizade84@gmail.com")
+            ->send(new \App\Mail\RequestMail(
+                $request->all(["name" ,"email" ,"subject" ,"phone" ,"message"])
+        ));
 
         session()->flash("status","success");
         return redirect()->route("lp");
