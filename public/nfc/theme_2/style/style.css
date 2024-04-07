@@ -1,0 +1,168 @@
+@font-face {
+    font-family: yekan;
+    src: url(../fonts/IRANYekanWebMedium.woff2);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: yekan;
+}
+
+body{
+    position: relative;
+}
+
+header{
+    width: 100%;
+    position: relative;
+}
+
+header .img-bg{
+    width: 100%;
+    /* min-height: 14rem !important; */
+    object-fit: cover;
+    height: 20rem !important;
+
+    border-radius: 4px 4px 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    
+}
+
+.avatar{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 11rem;
+    height: 11rem;
+
+    /* object-fit :cover; */
+
+    border-radius: 50%;
+    overflow: hidden;
+    border: #0e0e0e 4px solid;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.NameTitle{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 7rem;
+    font-weight: 900;
+}
+.number{
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 900;
+}
+
+.Socials{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.Socials ul{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+    border-radius: 19px;
+    list-style: none;
+    background-color: #9b9b9b4d;
+    backdrop-filter: blur(30px);
+}
+.Socials ul li{
+    
+}
+
+.Socials ul li a{
+    color: #5c5c5c;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+}
+
+.Socials ul li a:hover {
+    color: #020100 !important;
+    
+}
+
+.footerButtons{
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    width: 18rem;
+    display: flex;
+    align-items: center;
+    border: #202020 2px solid ;
+    border-radius: 50px;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    box-shadow:  0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+}
+
+.footerButtons a{
+    width: 50% !important;
+    border: none;
+    padding: 10px 15px;
+    background-color: #ebebeb;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+
+#buyNfc{
+    border-radius: 50px 0px 0px 50px;
+
+}
+
+#addToContact{
+    border-left: #000 1px solid ;
+    border-radius: 0px 50px 50px 0px;
+  
+}
+
+.conatainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    max-width: 70rem;
+    margin: 60px auto;
+    margin-top: 30px !important;
+    justify-content: center;
+    
+}
+
+.conatainer .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #9b9b9b4d;
+    padding: 14px;
+    border-radius: 16px;
+    width: 30rem !important;
+    
+}
+
+
+.conatainer .card i{
+ font-size: 28px;
+ background-color: #fff;
+ padding: 25px 22px;
+ border-radius: 50%;
+}

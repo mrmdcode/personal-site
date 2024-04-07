@@ -8,7 +8,7 @@
             "mountTo": "public"
         },{
             "name": "disk-2",
-            "mountTo": "storage"
+            "mountTo": "storage/app/public"
         }
 
     ]
