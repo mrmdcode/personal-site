@@ -7,7 +7,7 @@
             "name": "disk-1",
             "mountTo": "public"
         },{
-            "name": "disk-2",
+            "name": "dynamic-data",
             "mountTo": "storage/app/public"
         }
 

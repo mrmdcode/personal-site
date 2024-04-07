@@ -9,6 +9,7 @@
     <title>{{$nfc->Name}} - NFC کارت</title>
     <link rel="stylesheet" href="/nfc/theme_2/style/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
 <main>
@@ -56,7 +57,6 @@
 
         </ul>
     </div>
-
     <div class="conatainer">
         <div class="card cardOne">
             <i class="fa-solid fa-code"></i>
@@ -72,9 +72,10 @@
     </div>
 </main>
 <div class="footerButtons">
-    <a id="addToContact" href="tel:+{{$nfc->Phone}}">افرودن به مخاطبین</a>
-    <a id="buyNfc" href="mrmdcode.ir">منم NFC میخوام</a>
+    <a id="addToContact" href="tel:{{$nfc->Phone}}">افرودن به مخاطبین</a>
+    <a id="buyNfc" href="https://mrmdcode.ir">منم NFC میخوام</a>
 </div>
+
 
 <script src="https://unpkg.com/starback@2.1.1/dist/starback.global.js"></script>
 
