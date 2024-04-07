@@ -21,11 +21,11 @@ class UCRequestRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "require|string|min:2|max:191",
-            "email" => "require|string|min:2|max:191",
-            "subject" => "require|string|min:2|max:191",
-            "phone" => "require|string|min:10|max:21",
-            "message" => "require|string|min:10|max:21",
+            "name" => "required|string|min:2|max:191",
+            "email" => "required|string|min:2|max:191",
+            "subject" => "required|string|min:2|max:191",
+            "phone" => "required|string|min:10|max:21",
+            "message" => "required|string|min:10|max:21",
         ];
     }
 }
