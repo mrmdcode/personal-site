@@ -13,20 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['domain' => 'nfc.'.env("APP_URL")], function () {
+Route::group(['domain' => 'nfc.localhost'], function () {
     Route::get('/id={id}', function ($id) {
         $nfc = \App\Models\Panel_nfc::where("key",$id)->first();
         if ($nfc){
-            return view("NFC.temp_1",compact("nfc"));
+            if ($nfc->Theme == "temp_1") {
+                return view("NFC.temp_1", compact("nfc"));
+            }
+            if ($nfc->Theme == "temp_2") {
+                return view("NFC.temp_2", compact("nfc"));
+            }
         }
         return abort(404);
     });
 });
-Route::group(['domain' => 'res.'.env("APP_URL")], function () {
-    Route::get('/',[\App\Http\Controllers\ViewU2DashboardController::class,'LandingPage']);
+Route::group(['domain' => 'res.localhost'], function () {
+    Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'LandingPage']);
     Route::prefix("dashboard")->middleware("auth")->group(function (){
-        Route::get('/',[\App\Http\Controllers\ViewU2DashboardController::class,'dashboardIndex'])->name("u2-dashboard");
-        Route::get('setting',[\App\Http\Controllers\ViewU2DashboardController::class,'landingPageData'])->name("u2-landingPageData");
+        Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'dashboardIndex'])->name("u2-dashboard");
+        Route::resource("u2-menu",\App\Http\Controllers\Res\MenuController::class);
+        Route::post("categoryStore",[\App\Http\Controllers\Res\MenuController::class,'categoryStore'])->name('u2-menu-category.sote');
+        Route::resource("u2-menuItem",\App\Http\Controllers\Res\MenuItemController::class);
+        Route::get('setting',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'landingPageData'])->name("u2-landingPageData");
+        Route::post('setting',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'storeLPD'])->name("u2-storeLPD");
     });
     Route::get('cafe',function (){
         return view("Reservation.Front.Themes.Theme_1");
@@ -59,6 +68,8 @@ Route::prefix("dashboard")->middleware(["auth",'CheckAdmin'])->group(function ()
     Route::get("nfc/edit/{id}",[\App\Http\Controllers\Back\PanelNFCController::class,'edit'])->name("Panel_nfc.edit");
     Route::put("nfc/update/{id}",[\App\Http\Controllers\Back\PanelNFCController::class,'update'])->name("Panel_nfc.update");
     Route::get("nfc/{id}/delete",[\App\Http\Controllers\Back\PanelNFCController::class,'delete'])->name("Panel_nfc.delete");
+    Route::resource("rsp",\App\Http\Controllers\Res\RSPAdminController::class);
+
 });
 
 

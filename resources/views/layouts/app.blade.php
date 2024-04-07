@@ -52,7 +52,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Reservation</a>
+                                <a class="dropdown-item" href="{{route("rsp.index")}}">Reservation</a>
                                 <a class="dropdown-item" href="{{route("Panel_nfc.Index")}}" >NFC Product</a>
                             </div>
                         </li>

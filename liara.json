@@ -1,11 +1,15 @@
 {
     "laravel": {
-        "phpVersion" : "8.0"
+        "phpVersion" : "8.2"
     },
     "disks": [
         {
             "name": "disk-1",
             "mountTo": "public"
+        },{
+            "name": "disk-2",
+            "mountTo": "storage"
         }
+
     ]
 }

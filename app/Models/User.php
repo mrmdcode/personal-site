@@ -42,4 +42,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function rsp()
+    {
+        return $this->hasOne(ReservationServiceProfile::class,"admin_user_id","id");
+    }
+
 }

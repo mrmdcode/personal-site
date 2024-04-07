@@ -17,3 +17,26 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['domain' => 'reservation.'.env("APP_URL")], function () {
+    Route::get('/{username}',function ($username){
+        $rsp = \App\Models\ReservationServiceProfile::where('companyName',$username)->with(['template_data'])->first();
+        if ($rsp){
+            return response(compact('rsp'));
+        }
+        else{
+            return response(["rsp"=>"Not Found Reservation Company"],404);
+        }
+
+    });
+    Route::get('/{username}/menu',function ($username){
+        $rsp = \App\Models\ReservationServiceProfile::where('companyName',$username)->with(['template_data'])->first();
+        $menus = \App\Models\RSMenu::with('MenuItems')->get();
+        if ($rsp){
+            return response(compact('menus'));
+        }
+        else{
+            return response(["rsp"=>"Not Found Reservation Company"],404);
+        }
+
+    });
+});
