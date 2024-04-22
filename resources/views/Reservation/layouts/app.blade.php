@@ -42,7 +42,13 @@
                         </li>
                        <li class="nav-item">
                             <a class="nav-link" href="{{route("u2-menu.index")}}">Menu s</a>
-                        </li>
+                       </li>
+                       <li class="nav-item">
+                            <a class="nav-link" href="{{route("u2-menuItem.index")}}">Menu s Item</a>
+                       </li>
+                       <li class="nav-item">
+                            <a class="nav-link" href="{{route("u2-table.index")}}">table</a>
+                       </li>
 
 
 

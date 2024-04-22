@@ -39,7 +39,7 @@
 <div id="page-wraper">
     <!-- Sidebar Menu -->
     @include("Front.Index._partial._Aside")
-    <div id="pos-article-display-card-95490"></div>
+
     @include("Front.Index._partial._About")
 
     @include("Front.Index._partial._Skills")
@@ -47,8 +47,6 @@
     @include("Front.Index._partial._Works")
 
     @include("Front.Index._partial._ContactMe")
-    <div id="pos-article-display-card-95490"></div>
-    <div id="pos-article-display-card-95490"></div>
 </div>
 
 <!-- Scripts -->

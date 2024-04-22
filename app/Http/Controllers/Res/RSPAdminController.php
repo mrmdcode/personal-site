@@ -44,13 +44,17 @@ class RSPAdminController extends Controller
 
     public function edit($id)
     {
+        $user2s = User::where("type","user2")->get();
         $rsps = ReservationServiceProfile::findOrFail($id);
-        return view('dashboard.ServiceRSP.Create' ,compact('rsps'));
+        return view('dashboard.ServiceRSP.Edit' ,compact('rsps','user2s'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        ReservationServiceProfile::where('id',$id)->update($request->all(["companyName","admin_user_id","informationPhone","informationActivity","informationSmTel","informationSmIns","informationSmWh",]));
+        session()->flash("status","Update Successfully");
+        return redirect()->route("rsp.index");
+//        return $request;
     }
     public function destroy($id)
     {

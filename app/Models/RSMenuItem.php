@@ -9,8 +9,9 @@ class RSMenuItem extends Model
 {
     use HasFactory;
     protected $guarded =['id'];
+    public $timestamps = false;
     protected $fillable = [
-        "rsp_id",
+        "r_s_menu_id",
         "name",
         "description",
         "price",
@@ -18,6 +19,6 @@ class RSMenuItem extends Model
 
     public function rs_menu()
     {
-        return $this->belongsTo(RSMenuItem::class);
+        return $this->belongsTo(RSMenu::class,'r_s_menu_id');
     }
 }

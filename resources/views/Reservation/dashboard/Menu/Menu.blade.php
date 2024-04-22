@@ -105,7 +105,6 @@
                             <td>{{$menu->name}}</td>
                             <td>{{$menu->category->name}}</td>
                             <td>
-                                <a href="#" class="btn btn-outline-success">add item</a>
                                 <a href="#" class="btn btn-outline-warning">edit</a>
                                 <a href="#" class="btn btn-danger">delete</a>
                             </td>

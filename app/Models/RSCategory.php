@@ -13,6 +13,6 @@ class RSCategory extends Model
     public $timestamps = false;
     public function menu()
     {
-        return $this->hasMany(RSMenu::class);
+        return $this->hasMany(RSMenu::class,'category_id');
     }
 }

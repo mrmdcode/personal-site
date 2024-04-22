@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['domain' => 'nfc.localhost'], function () {
+$localH = 'localhost';
+
+Route::group(['domain' => 'nfc.'.$localH], function () {
     Route::get('/id={id}', function ($id) {
         $nfc = \App\Models\Panel_nfc::where("key",$id)->first();
         if ($nfc){
@@ -27,7 +29,7 @@ Route::group(['domain' => 'nfc.localhost'], function () {
         return abort(404);
     });
 });
-Route::group(['domain' => 'res.localhost'], function () {
+Route::group(['domain' => 'res.'.$localH], function () {
     Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'LandingPage']);
     Route::prefix("dashboard")->middleware("auth")->group(function (){
         Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'dashboardIndex'])->name("u2-dashboard");
@@ -36,6 +38,8 @@ Route::group(['domain' => 'res.localhost'], function () {
         Route::resource("u2-menuItem",\App\Http\Controllers\Res\MenuItemController::class);
         Route::get('setting',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'landingPageData'])->name("u2-landingPageData");
         Route::post('setting',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'storeLPD'])->name("u2-storeLPD");
+        Route::resource('u2-table',\App\Http\Controllers\Res\u2TableController::class);
+        Route::get('u2-table/{id}/times',[\App\Http\Controllers\Res\u2TableTimeController::class,'index'])->name('u2-table.times');
     });
     Route::get('cafe',function (){
         return view("Reservation.Front.Themes.Theme_1");

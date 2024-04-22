@@ -9,7 +9,7 @@
                 <a href="{{route('rsp.index')}}" class="btn btn-primary">RPS index</a>
             </div>
             <div class="card-body">
-                <form enctype="multipart/form-data" action="{{route('rsp.store')}}" method="post" class="row border-bottom pb-5 mb-5">
+                <form enctype="multipart/form-data" action="{{route('rsp.update',$rsps->id)}}" method="post" class="row border-bottom pb-5 mb-5">
                     @csrf
                     @method("put")
                     <div class="form-group col-6" >
@@ -17,8 +17,8 @@
                         <select class="form-control" name="admin_user_id" id="admin_user_id">
 
                             @forelse($user2s as $user)
-
-                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                @if($rsps->admin_user_id == $user->id) @endif
+                                    <option value="{{$user->id}}" selected>{{$user->name}}</option>
 
                             @empty
                                 <option >nothing</option>
@@ -30,32 +30,32 @@
                     {{--                             Name --}}
                     <div class="form-group col-6">
                         <label for="companyName">company Name</label>
-                        <input class="form-control" type="text" name="companyName" id="companyName">
+                        <input class="form-control" type="text" value="{{$rsps->companyName}}" name="companyName" id="companyName">
                     </div>
                     {{--                            Phone--}}
                     <div class="form-group col-6">
                         <label for="informationPhone">information Phone</label>
-                        <input class="form-control" type="text" name="informationPhone" id="informationPhone">
+                        <input class="form-control" type="text" value="{{$rsps->informationPhone}}" name="informationPhone" id="informationPhone">
                     </div>
                     {{--                            Instagram--}}
                     <div class="form-group col-6">
                         <label for="informationActivity">information Activity</label>
-                        <input class="form-control" type="text" name="informationActivity" id="informationActivity">
+                        <input class="form-control" type="text" value="{{$rsps->informationActivity}}" name="informationActivity" id="informationActivity">
                     </div>
                     {{--                            Telegram--}}
                     <div class="form-group col-6">
                         <label for="informationSmTel">information Social media Tel</label>
-                        <input class="form-control" type="text" name="informationSmTel" id="informationSmTel">
+                        <input class="form-control" type="text" value="{{$rsps->informationSmTel}}" name="informationSmTel" id="informationSmTel">
                     </div>
                     {{--                            Rubika--}}
                     <div class="form-group col-6">
                         <label for="informationSmIns">information  Social media Ins</label>
-                        <input class="form-control" type="text" name="informationSmIns" id="informationSmIns">
+                        <input class="form-control" type="text" value="{{$rsps->informationSmIns}}" name="informationSmIns" id="informationSmIns">
                     </div>
                     {{--                            Twitter--}}
                     <div class="form-group col-6">
                         <label for="informationSmWh">information Social media Wh</label>
-                        <input class="form-control" type="text" name="informationSmWh" id="informationSmWh">
+                        <input class="form-control" type="text" value="{{$rsps->informationSmWh}}" name="informationSmWh" id="informationSmWh">
                     </div>
 
 

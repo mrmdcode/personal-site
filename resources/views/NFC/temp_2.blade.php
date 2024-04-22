@@ -28,28 +28,28 @@
         <ul>
             @if($nfc->Twitter != "")
                 <li>
-                    <a href="{{$nfc->Instagram}}">
+                    <a href="https://twitter.com/{{$nfc->Twitter}}">
                         <i class="fa-brands fa-twitter"></i>
                     </a>
                 </li>
             @endif
             @if($nfc->Instagram != "")
                 <li>
-                    <a href="{{$nfc->Instagram}}">
+                    <a href="https://instagram.com/{{$nfc->Instagram}}">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </li>
             @endif
             @if($nfc->Telegram != "")
                 <li>
-                    <a href="{{$nfc->Instagram}}">
+                    <a href="https://t.me/{{$nfc->Telegram}}">
                         <i class="fa-brands fa-telegram"></i>
                     </a>
                 </li>
             @endif
             @if($nfc->Linkedin != "")
                 <li>
-                    <a href="{{$nfc->Instagram}}">
+                    <a href="https://linkedin.com/c/{{$nfc->Linkedin}}">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
                 </li>

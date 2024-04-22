@@ -33,4 +33,9 @@ class ReservationServiceProfile extends Model
     {
         return $this->hasOne(RSPTemplateData::class,'rsp_id','id');
     }
+
+    public function tables()
+    {
+        return $this->hasMany(RSTable::class,'rsp_id');
+    }
 }

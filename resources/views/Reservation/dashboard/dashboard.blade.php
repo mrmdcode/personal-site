@@ -13,7 +13,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         Reservation Today</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$resvTodeyCount}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -29,7 +29,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         Reservation Week</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$resvWeekCount}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -76,14 +76,21 @@
                                 <th>Action</th>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>سه شنبه</td>
-                                    <td>04:00 - 05:30</td>
-                                    <td>mahdi kazemi</td>
-                                    <td>09389512885</td>
-                                    <td><a class="btn btn-warning " href="#">Expire</a></td>
-                                </tr>
+                                @php $i=1; @endphp
+                                @forelse($resv as $res)
+                                    <tr title="{{$res->message}}">
+                                        <td>{{$i++}}</td>
+                                        <td>{{$res->date}}</td>
+                                        <td>{{$res->start}} to {{$res->end}}</td>
+                                        <td>{{$res->customer_name}}</td>
+                                        <td>{{$res->customer_phone}}</td>
+                                        <td><a class="btn btn-warning " href="#">Expire</a></td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="6">nothing</td>
+                                    </tr>
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>

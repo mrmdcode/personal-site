@@ -237,8 +237,8 @@
 
                 <div class="row mb-5">
                     <img src="@php $pathArr = explode("/",$rsptd->s_1_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 1" class="col-md-4">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_2_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 2" class="col-md-4 w-100">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_3_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 3" class="col-md-4 w-100">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_2_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 2" class="col-md-4">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_3_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 3" class="col-md-4">
                 </div>
 
                 <div class="row my-5">
@@ -254,7 +254,7 @@
 
                 <div class="row mb-5">
                     <img src="@php $pathArr = explode("/",$rsptd->s_4_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 4" class="col-md-4">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_5_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 5" class="col-md-4 w-100">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_5_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 5" class="col-md-4 ">
                 </div>
                 <div class="row justify-content-center">
                     <button type="submit" class="btn btn-outline-success col-md-4 col-sm-12">Save</button>

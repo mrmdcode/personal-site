@@ -49,4 +49,8 @@ class User extends Authenticatable
         return $this->hasOne(ReservationServiceProfile::class,"admin_user_id","id");
     }
 
+    public function tables()
+    {
+        return $this->hasMany(RSTable::class,'id');
+    }
 }

@@ -18,7 +18,7 @@ class RSMenu extends Model
 
     public function rsp()
     {
-        return $this->belongsTo(ReservationServiceProfile::class);
+        return $this->belongsTo(ReservationServiceProfile::class,'r_s_menu_id');
     }
 
     public function category()

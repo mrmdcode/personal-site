@@ -5,18 +5,32 @@ namespace App\Http\Controllers\Res;
 use App\Http\Controllers\Controller;
 use App\Models\ReservationServiceProfile;
 use App\Models\RSPTemplateData;
+use App\Models\RSReservation;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ViewU2DashboardController extends Controller
 {
     public function LandingPage()
     {
-        return redirect()->route("lp");
+        return redirect()->route("login");
     }
     public function dashboardIndex()
     {
-        return view("Reservation.dashboard.dashboard");
+        $resvWeekCount = RSReservation::where('rsp_id',auth()->user()->rsp->id)
+            ->where('date','>',Carbon::now('Asia/Tehran')->startOfWeek())
+            ->where('date','<',Carbon::now('Asia/Tehran')->endOfWeek())
+            ->count();
+        $resvTodeyCount = RSReservation::where('rsp_id',auth()->user()->rsp->id)
+            ->where('date','=',Carbon::today())
+            ->count();
+        $resv = RSReservation::where('rsp_id',auth()->user()->rsp->id)
+            ->where('date','=',Carbon::today()->format('Y-m-d'))
+//            ->where('date','<',Carbon::tomorrow()->format('Y-m-d'))
+            ->get();
+
+        return view("Reservation.dashboard.dashboard",compact('resvWeekCount','resvTodeyCount','resv'));
     }
 
     public function landingPageData()
