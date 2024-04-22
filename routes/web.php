@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$localH = 'localhost';
+$localH = env('localH','localhost');
 
 Route::group(['domain' => 'nfc.'.$localH], function () {
     Route::get('/id={id}', function ($id) {
