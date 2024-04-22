@@ -57,11 +57,11 @@ Route::group(['domain' => 'reservation.'.$localH], function () {
             return response(["rsp"=>"Not Found Reservation Company"],404);
         }
     });
-    Route::get('/{username}/tables/{table}',function ($username,$table){
+    Route::get('/{username}/tables/{table}/{date}',function ($username,$table,$date){
         $rsp = \App\Models\ReservationServiceProfile::where('companyName',$username)
             ->with(['template_data'])
             ->first();
-        $dis_times = \App\Models\RSReservation::where('r_s_table_id',$table)->get(['date','start','end']);
+        $dis_times = \App\Models\RSReservation::where('r_s_table_id',$table)->where('date',$date)->get(['start','end']);
 
         if ($rsp){
             return response(compact('dis_times','rsp'));
