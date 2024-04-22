@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+$localH = 'localhost';
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::group(['domain' => 'reservation.'.env("APP_URL")], function () {
+Route::group(['domain' => 'reservation.'.$localH], function () {
     Route::get('/{username}',function ($username){
         $rsp = \App\Models\ReservationServiceProfile::where('companyName',$username)->with(['template_data'])->first();
         $menus = \App\Models\RSMenu::with(['MenuItems'])->get();
