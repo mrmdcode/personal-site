@@ -29,7 +29,7 @@ Route::group(['domain' => 'nfc.'.$localH], function () {
         return abort(404);
     });
 });
-Route::group(['domain' => 'res.'.$localH], function () {
+Route::group(['domain' => 'reservation.'.$localH], function () {
     Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'LandingPage']);
     Route::prefix("dashboard")->middleware("auth")->group(function (){
         Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'dashboardIndex'])->name("u2-dashboard");
