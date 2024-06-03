@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('customer_name');
             $table->string('customer_phone');
             $table->foreignId('rsp_id');
+            $table->integer('count');
             $table->foreignId('r_s_table_id');
             $table->date('date');
             $table->time('start');

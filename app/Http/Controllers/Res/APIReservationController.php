@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Res;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class APIReservationController extends Controller
 {
@@ -87,12 +88,13 @@ class APIReservationController extends Controller
                 'customer_name' => $req->input('customer_name'),
                 'customer_phone' => $req->input('customer_phone'),
                 'message' => $req->input('message'),
+                'count' => $req->input('count'),
                 'date' => $req->input('date'),
                 'start' => $req->input('start'),
                 'end' => $req->input('end'),
             ]);
             if ($res){
-                return response('create successful',201);
+                return response(['create successful'],201);
             }
         }
         else{
