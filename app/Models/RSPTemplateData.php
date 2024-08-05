@@ -10,6 +10,7 @@ class RSPTemplateData extends Model
     use HasFactory;
     protected $guarded =['id'];
     protected $fillable=[
+        'rsp_id',
         "address",
         "icon",
         "title",

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Res;
 
 use App\Http\Controllers\Controller;
 use App\Models\ReservationServiceProfile;
+use App\Models\RSOrder;
 use App\Models\RSPTemplateData;
 use App\Models\RSReservation;
 use App\Models\User;
@@ -15,6 +16,12 @@ class ViewU2DashboardController extends Controller
     public function LandingPage()
     {
         return redirect()->route("login");
+    }
+
+    public function orders()
+    {
+        $items = RSOrder::orderByDesc('created_at')->get();
+        return view("reservation.dashboard.Orders.Orders",compact('items'));
     }
     public function dashboardIndex()
     {

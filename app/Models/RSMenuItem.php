@@ -21,4 +21,9 @@ class RSMenuItem extends Model
     {
         return $this->belongsTo(RSMenu::class,'r_s_menu_id');
     }
+
+    public function rs_order()
+    {
+        return $this->belongsToMany(RSOrder::class,'r_s_item_order')->withPivot('qty');
+    }
 }

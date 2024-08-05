@@ -1,8 +1,8 @@
-@extends("Reservation.layouts.app")
+@extends("Reservation.Layouts.app")
 
 @section("content")
-    <form action="{{route('u2-storeLPD')}}" method="post"  class="container" enctype="multipart/form-data">
-            @csrf
+    <form action="{{route('u2-storeLPD')}}" method="post" class="container" enctype="multipart/form-data">
+        @csrf
         <div class="card mb-5">
             <div class="card-header">
                 <h4>
@@ -19,12 +19,13 @@
                          ->wrapperAttr(['class' => 'form-group col-md-6 col-sm-12'])
                     !!}
                     <div class="form-group col-md-6 col-sm-12">
-                            <label for="icon">Section 5 Image</label>
-                            <input type="file" name="icon" id="icon" class="form-control">
+                        <label for="icon">Section 5 Image</label>
+                        <input type="file" name="icon" id="icon" class="form-control">
                     </div>
                 </div>
                 <div class="row">
-                    <img src="@php $pathArr = explode("/",$rsptd->icon);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="icon" class="col-md-3 offset-6">
+                    <img src="@php $pathArr = explode("/",$rsptd->icon);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp"
+                         alt="icon" class="col-md-3 offset-6">
                 </div>
 
             </div>
@@ -61,21 +62,21 @@
                 {{--          slider      --}}
                 <div class="row my-5">
 
-                {!! Form::create('text', 'slider_t')
-                     ->label('Slider Title : ')
-                     ->value($rsptd->slider_t)
-                     ->required()
-                     ->attr(['maxlenght' => '50','class'=>"form-control"])
-                     ->wrapperAttr(['class' => 'form-group col-md-6 col-sm-12'])
-                !!}
+                    {!! Form::create('text', 'slider_t')
+                         ->label('Slider Title : ')
+                         ->value($rsptd->slider_t)
+                         ->required()
+                         ->attr(['maxlenght' => '50','class'=>"form-control"])
+                         ->wrapperAttr(['class' => 'form-group col-md-6 col-sm-12'])
+                    !!}
 
-                {!! Form::create('textarea', 'slider_d')
-                     ->label('Slider Description : ')
-                     ->value($rsptd->slider_d)
-                     ->required()
-                     ->attr(['maxlenght' => '50','class'=>"form-control"])
-                     ->wrapperAttr(['class' => 'form-group col-md-6 col-sm-12'])
-                !!}
+                    {!! Form::create('textarea', 'slider_d')
+                         ->label('Slider Description : ')
+                         ->value($rsptd->slider_d)
+                         ->required()
+                         ->attr(['maxlenght' => '50','class'=>"form-control"])
+                         ->wrapperAttr(['class' => 'form-group col-md-6 col-sm-12'])
+                    !!}
                 </div>
 
                 {{--          Section 1      --}}
@@ -236,9 +237,12 @@
                 </div>
 
                 <div class="row mb-5">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_1_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 1" class="col-md-4">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_2_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 2" class="col-md-4">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_3_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 3" class="col-md-4">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_1_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp"
+                         alt="section 1" class="col-md-4">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_2_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp"
+                         alt="section 2" class="col-md-4">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_3_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp"
+                         alt="section 3" class="col-md-4">
                 </div>
 
                 <div class="row my-5">
@@ -253,8 +257,10 @@
                 </div>
 
                 <div class="row mb-5">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_4_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 4" class="col-md-4">
-                    <img src="@php $pathArr = explode("/",$rsptd->s_5_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp" alt="section 5" class="col-md-4 ">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_4_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp"
+                         alt="section 4" class="col-md-4">
+                    <img src="@php $pathArr = explode("/",$rsptd->s_5_i);$newPath = array_pop($pathArr) ;echo asset("storage/reservation/".auth()->user()->rsp->companyName."/tmplate/".$newPath); @endphp"
+                         alt="section 5" class="col-md-4 ">
                 </div>
                 <div class="row justify-content-center">
                     <button type="submit" class="btn btn-outline-success col-md-4 col-sm-12">Save</button>

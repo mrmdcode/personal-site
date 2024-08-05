@@ -1,4 +1,4 @@
-@extends("Reservation.layouts.app")
+@extends("Reservation.Layouts.app")
 
 @section("content")
 
@@ -84,10 +84,9 @@
                     @endforelse
                     </tbody>
                 </table>
-{{--                {{$menus->links()}}--}}
+                {{--                {{$menus->links()}}--}}
             </div>
         </div>
-
 
 
     </div>

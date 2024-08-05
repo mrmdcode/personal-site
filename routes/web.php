@@ -31,7 +31,7 @@ Route::group(['domain' => 'nfc.'.$localH], function () {
 });
 Route::group(['domain' => 'reservation.'.$localH], function () {
     Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'LandingPage']);
-    Route::prefix("dashboard")->middleware("auth")->group(function (){
+    Route::prefix("dashboard")->middleware(["auth",'chm_user2'])->group(function (){
         Route::get('/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'dashboardIndex'])->name("u2-dashboard");
         Route::resource("u2-menu",\App\Http\Controllers\Res\MenuController::class);
         Route::post("categoryStore",[\App\Http\Controllers\Res\MenuController::class,'categoryStore'])->name('u2-menu-category.sote');
@@ -40,10 +40,18 @@ Route::group(['domain' => 'reservation.'.$localH], function () {
         Route::post('setting',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'storeLPD'])->name("u2-storeLPD");
         Route::resource('u2-table',\App\Http\Controllers\Res\u2TableController::class);
         Route::get('u2-table/{id}/times',[\App\Http\Controllers\Res\u2TableTimeController::class,'index'])->name('u2-table.times');
+        Route::get('u2-orders/',[\App\Http\Controllers\Res\ViewU2DashboardController::class,'orders'])->name('u2-orders');
     });
     Route::get('cafe',function (){
         return view("Reservation.Front.Themes.Theme_1");
     });
+});
+Route::group(['domain' => 'orderTaker.'.$localH], function () {
+   Route::middleware(["auth",'chm_order_taker'])->group(function (){
+       Route::get('/',[\App\Http\Controllers\Res\orderTakerController::class,'index'])->name('order-taker.index');
+       Route::get('indexData',[\App\Http\Controllers\Res\orderTakerController::class,'indexData'])->name("order-taker.indexData");
+       Route::post('/',[\App\Http\Controllers\Res\orderTakerController::class,'store'])->name('order-taker.store');
+   });
 });
 
 Route::get('/', function () {

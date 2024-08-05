@@ -1,5 +1,4 @@
-
-@extends("Reservation.layouts.app")
+@extends("Reservation.Layouts.app")
 
 @section("content")
 
@@ -28,9 +27,9 @@
                 <div class="row my-5">
                     <table class="table table-striped table-hover table-bordered text-center">
                         <thead>
-                            <th>#</th>
-                            <th>name</th>
-                            <th>action</th>
+                        <th>#</th>
+                        <th>name</th>
+                        <th>action</th>
                         </thead>
                         <tbody>
                         @forelse($tables as $table)
@@ -38,7 +37,8 @@
                                 <td>#</td>
                                 <td>{{$table->name}}</td>
                                 <td>
-                                    <form method="post" class="d-inline-block" action="{{route('u2-table.destroy',$table->id)}}">
+                                    <form method="post" class="d-inline-block"
+                                          action="{{route('u2-table.destroy',$table->id)}}">
                                         @csrf
                                         @method("delete")
                                         <button class="btn btn-outline-danger">Delete</button>

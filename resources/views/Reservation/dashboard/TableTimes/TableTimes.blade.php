@@ -1,5 +1,4 @@
-@extends("Reservation.layouts.app")
-
+@extends("Reservation.Layouts.app")
 @section("content")
 
     <div class="container">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Res;
 
 use App\Http\Controllers\Controller;
 use App\Models\ReservationServiceProfile;
+use App\Models\RSPTemplateData;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,37 @@ class RSPAdminController extends Controller
             "informationSmTel" => $request->input('informationSmTel'),
             "informationSmIns" => $request->input('informationSmIns'),
             "informationSmWh" => $request->input('informationSmWh'),
+        ]);
+//        dd($rsp);
+        RSPTemplateData::create([
+            "rsp_id" => $rsp->id,
+            "address" => "Test Text",
+            "icon" => "Test Text",
+            "title" => "Test Text",
+            "name" => "Test Text",
+            "slider_t" => "Test Text",
+            "slider_d" => "Test Text",
+            "sec_1_t" => "Test Text",
+            "sec_1_m" => "Test Text",
+            "sec_1_d" => "Test Text",
+            "sec_2_p_1_t" => "Test Text",
+            "sec_2_p_2_t" => "Test Text",
+            "sec_2_p_3_t" => "Test Text",
+            "sec_2_p_1_d" => "Test Text",
+            "sec_2_p_2_d" => "Test Text",
+            "sec_2_p_3_d" => "Test Text",
+            "sec_3_t" => "Test Text",
+            "sec_3_m" => "Test Text",
+            "sec_4_t" => "Test Text",
+            "sec_4_m" => "Test Text",
+            "sec_5_t" => "Test Text",
+            "sec_5_m" => "Test Text",
+            "sec_5_d" => "Test Text",
+            "s_1_i" => "Test Text",
+            "s_2_i" => "Test Text",
+            "s_3_i" => "Test Text",
+            "s_4_i" => "Test Text",
+            "s_5_i" => "Test Text",
         ]);
         session()->flash("status","Create Successfully");
         return redirect()->route("rsp.index");

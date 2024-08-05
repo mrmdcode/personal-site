@@ -33,6 +33,9 @@ class HomeController extends Controller
         if (\auth()->user()->type == "user2"){
             return redirect()->route("u2-dashboard");
         }
+        if (\auth()->user()->type == "order-taker"){
+            return redirect()->route("order-taker.index");
+        }
 
     }
 }
