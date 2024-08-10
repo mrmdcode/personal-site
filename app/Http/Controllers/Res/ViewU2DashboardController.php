@@ -21,7 +21,24 @@ class ViewU2DashboardController extends Controller
     public function orders()
     {
         $items = RSOrder::orderByDesc('created_at')->get();
-        return view("reservation.dashboard.Orders.Orders",compact('items'));
+        return view("Reservation.dashboard.Orders.Orders",compact('items'));
+    }
+
+    public function acceptOrder($id)
+    {
+        $order = RSOrder::find($id);
+        $order->status = "accepted";
+        $order->save();
+        session()->flash('success','عملیات با موفقیت انجام شد ');
+        return redirect()->route('u2-orders');
+    }
+    public function cancelOrder($id)
+    {
+        $order = RSOrder::find($id);
+        $order->status = "cancelled";
+        $order->save();
+        session()->flash('success','عملیات با موفقیت انجام شد ');
+        return redirect()->route('u2-orders');
     }
     public function dashboardIndex()
     {
@@ -98,5 +115,11 @@ class ViewU2DashboardController extends Controller
 
         return redirect()->route('u2-landingPageData');
 
+    }
+
+    public function orderEdit($id)
+    {
+        $order = RSOrder::where('id',$id)->with('rs_menu_items')->first();
+        return response(compact('order'));
     }
 }

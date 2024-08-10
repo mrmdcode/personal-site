@@ -24,4 +24,9 @@ class RSTable extends Model
     {
         return $this->hasMany(RSReservation::class,'r_s_table_id');
     }
+
+    public function orders()
+    {
+        return $this->hasMany(RSOrder::class,'table_id');
+    }
 }
