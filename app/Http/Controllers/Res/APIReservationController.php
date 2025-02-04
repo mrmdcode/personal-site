@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class APIReservationController extends Controller
 {
+    //hhhhhhhh
     public function landingPage($username){
         $rsp = \App\Models\ReservationServiceProfile::where('companyName',$username)->with(['template_data'])->first();
         $menus = \App\Models\RSMenu::with(['MenuItems'])->get();
